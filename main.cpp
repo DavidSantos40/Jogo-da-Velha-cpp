@@ -7,14 +7,14 @@ char verificarVencedor(char tabuleiro[3][3]) { //ia gerou
     
     for (int i = 0; i < 3; i++) {
         if (tabuleiro[i][0] == tabuleiro[i][1] && tabuleiro[i][1] == tabuleiro[i][2]) {
-            return tabuleiro[i][0]; // Retorna o caractere da linha (X ou O)
+            return tabuleiro[i][0]; 
         }
     }
 
     
     for (int j = 0; j < 3; j++) {
         if (tabuleiro[0][j] == tabuleiro[1][j] && tabuleiro[1][j] == tabuleiro[2][j]) {
-            return tabuleiro[0][j]; // Retorna o caractere da coluna (X ou O)
+            return tabuleiro[0][j]; 
         }
     }
 
@@ -38,10 +38,10 @@ void tabuleiroDesenhado(char tabuleiro [3][3]){
 
     cout << endl;
 
-        // Loop das LINHAS
+        // linhas
         for (int i = 0; i < 3; i++) 
         {
-            // Loop das COLUNAS: Imprime 
+            // colunas 
             for (int j = 0; j < 3; j++) 
             {
                 
@@ -72,8 +72,7 @@ void pausar(string mensagem){
 }
 
 
-char jogar(char tabuleiro[3][3], int posicao, int jogadorAtual){ //verifica jogada e local de jogada
-    
+char jogar(char tabuleiro[3][3], int posicao, int jogadorAtual){ 
 
     int linha = (posicao -1) /3; 
     int coluna = ( posicao -1) %3; 
@@ -121,18 +120,18 @@ int main(){
 
         char jogadorAtual = (jogada % 2 == 0) ? 'X' : 'O';
         if (jogar(tabuleiro,posicaoJogador,jogadorAtual))
-        {    //Qualquer tecla vai funcionar para jogar novamente
+        {    
             pausar("posicao ja escolhida");
             continue;
         }
         
         char vencedor = verificarVencedor(tabuleiro);
-        if (vencedor != ' ') { // Se o vencedor NÃO FOR ' ' (espaço)
-            tabuleiroDesenhado(tabuleiro); // Mostra o tabuleiro final
+        if (vencedor != ' ') { 
+            tabuleiroDesenhado(tabuleiro); 
             cout << endl << "!!! FIM DE JOGO !!!" << endl;
             printf("O jogador %c venceu!\n", vencedor);
             
-            vitoria = true; // Marca que houve um vencedor
+            vitoria = true; 
             break;          // Sai do loop 'while' imediatamente 
         } //funcao q pedi para ia gerar
 
